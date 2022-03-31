@@ -1,5 +1,7 @@
 import tkinter as tk
+from emotion_processer import *
 
+RULES = Rules()
 
 class GameObject(object):
     def __init__(self, canvas, item):
@@ -18,10 +20,10 @@ class GameObject(object):
 
 class Ball(GameObject):
     def __init__(self, canvas, x, y):
-        self.radius = 10
+        self.radius = RULES.rule_set['ball']['radius']
         self.direction = [1, -1]
         # increase the below value to increase the speed of ball
-        self.speed = 10
+        self.speed = RULES.rule_set['ball']['speed']
         item = canvas.create_oval(x-self.radius, y-self.radius,
                                   x+self.radius, y+self.radius,
                                   fill='red')
@@ -60,10 +62,10 @@ class Ball(GameObject):
 
 class Paddle(GameObject):
     def __init__(self, canvas, x, y):
-        self.width = 30
+        self.width = RULES.rule_set['paddle']['width']
         self.height = 10
         self.ball = None
-        self.paddle_speed = 10
+        self.paddle_speed = RULES.rule_set['paddle']['speed']
 
         item = canvas.create_rectangle(x - self.width / 2,
                                        y - self.height / 2,
@@ -116,6 +118,7 @@ class Brick(GameObject):
 class Game(tk.Frame):
     def __init__(self, master):
         super(Game, self).__init__(master)
+
         self.lives = 3
         self.width = 610
         self.height = 400

@@ -1,0 +1,18 @@
+{
+  "ball": {
+    "radius": 10,
+    "max_radius": 20,
+    "min_radius": 5,
+    "speed": 10,
+    "max_speed": 20,
+    "min_speed": 5
+  },
+  "paddle": {
+    "width": 80,
+    "max_width": 100,
+    "min_width": 30,
+    "speed": 10,
+    "max_speed": 100,
+    "min_speed": 5
+  }
+}
